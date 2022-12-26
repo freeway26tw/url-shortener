@@ -3,7 +3,8 @@ const Schema = mongoose.Schema
 const shortenerSchema = new Schema({
   url: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   url_transform: {
     type: String,

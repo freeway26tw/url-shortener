@@ -1,17 +1,13 @@
-const mongoose = require('mongoose')
-const Shortener = require('../Shortener')
+const Shortener = require('../shortener')
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+const db = require('../../config/mongoose')
 
-const db = mongoose.connection
-db.on('error', () => {
-  console.log('mongodb error!')
-})
+
 db.once('open', () => {
-  console.log('mongodb connected!')
   Shortener.create(
     { url: 'https://www.google.com', url_transform: '6y7UP' },
     { url: 'https://www.facebook.com', url_transform: 'jcm83' },
