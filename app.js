@@ -16,6 +16,8 @@ app.engine('hbs', exphbs({ default: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
 app.use(routes)
+// setting static files
+app.use(express.static('public'))
 
 app.listen(3000, () => {
   console.log('App is runnig on http://localhost:3000')
