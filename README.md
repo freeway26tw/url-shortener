@@ -46,7 +46,7 @@
 7. 若看見此行訊息則代表順利運行
 
    ```bash
-   Express is listening on http://localhost:3000
+   App is running on http://localhost:3000
    ```
 
 8. 打開瀏覽器進入到以下網址，即可連到網頁
