@@ -27,7 +27,7 @@
    ```
 
    ps. 此時終端機上可能會出現「​​ high severity vulnerability 」的提示
-   這是因為 3.0.0 並不是 express-handlebars 當前最新版本
+   這是因為 express-handlebars 不是當前最新版本
    但此訊息不影響此專案的運作，因此可先忽略
 
 4. 新增.env檔案，存放 MONGODB_URI=mongoDB+srv://[使用者帳號:使用者密碼]@[資料庫伺服器位置]/[資料庫名稱]
