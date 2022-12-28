@@ -2,16 +2,25 @@ const express = require('express')
 const router = express.Router()
 const Shortener = require('../../models/shortener')
 
-// 使用NanoID來產生短網址
-const { customAlphabet } = require('nanoid');
+// 若要使用NanoID來產生短網址
+// const { customAlphabet } = require('nanoid');
 const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
 const upperCaseLetters = lowerCaseLetters.toUpperCase()
 const numbers = '1234567890'
-const nanoid = customAlphabet(lowerCaseLetters + upperCaseLetters + numbers, 5)
+// const nanoid = customAlphabet(lowerCaseLetters + upperCaseLetters + numbers, 5)
+
+function generateRandomId(n) {
+  let newId = ''
+  for (let i = 0; i < n; i++) {
+    let allCharacter = [...lowerCaseLetters, ...upperCaseLetters, ...numbers]
+    newId += allCharacter[Math.floor(Math.random() * allCharacter.length)]
+  }
+  return newId
+}
 
 // 產生不重複shorten url
 function uniqueNanoId() {
-  const nanoId = nanoid()
+  const nanoId = generateRandomId(5)
   Shortener.findOne({ url_transform: nanoId })
     .lean()
     .then(response => {
