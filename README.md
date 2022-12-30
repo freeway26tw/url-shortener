@@ -1,4 +1,4 @@
-# 我的餐廳清單
+# URL Shortener
 
 ![URL Shortener](./public/images/snapshot.png)
 
